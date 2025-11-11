@@ -40,7 +40,7 @@ OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
 
 all: $(OBJ)
-	$(CC) $(CXXFLAGS) $(SRC_FOLDER)*.cpp -I$(INCLUDE_FOLDER) -o $(BIN_FOLDER)$(TARGET) $(OBJ)
+	$(CC) ./src/main.cpp ./src/grid.cpp ./src/block.cpp ./include/blocks.cpp ./src/colors.cpp ./src/position.cpp ./src/game.cpp -L ./src/lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -I ./include/ -o ./bin/tetris.exe
 
 clean:
-	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLDER)*
+	@rm -rf ./bin/tetris.exe
